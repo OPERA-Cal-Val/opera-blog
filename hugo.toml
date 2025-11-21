@@ -1,6 +1,6 @@
 baseURL = 'https://opera-cal-val.github.io/'
 languageCode = 'en-us'
-title = 'OPERA Surface Disturbance Blog'
+title = 'OPERA Blog'
 theme = 'hugo-bearcub'
 author = 'OPERA Project Science Team'
 copyright = 'Copyright © 2025,  NASA JPL/Caltech'
