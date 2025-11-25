@@ -6,7 +6,7 @@ weight: 1
 
 
 
-This a blog for the Surface Disturbance Product derived from Sentinel-1 (DIST-S1). The DIST-S1 product is derived from the near-global OPERA Radiometric and Terrain Corrected (RTC-S1) products.
+This a blog for the Surface Disturbance Product from Sentinel-1 (DIST-S1). The DIST-S1 product is derived from the near-global OPERA Radiometric and Terrain Corrected (RTC-S1) products.
 
 Relevant Links:
 
