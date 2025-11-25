@@ -4,7 +4,7 @@ menu: "main"
 weight: 1
 ---
 
-This is a way to informally discuss the OPERA DISP-S1 product and provide interactive visualizations.
+This blog is to discuss the OPERA DISP-S1 product and provide interactive visualizations.
 
 <p align="center">
   <img src="DISP-S1-Overview_Example.png" width="600"/>
