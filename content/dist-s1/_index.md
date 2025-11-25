@@ -1,7 +1,7 @@
 ---
-title: "Home"
+title: "DIST-S1"
 menu: "main"
-weight: 1
+weight: 10
 ---
 
 
