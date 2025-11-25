@@ -2,8 +2,8 @@
 
 This is the repository for publishing the informal OPERA blog.
 
-- Main blog: [https://opera-cal-val.github.io/dist-s1-blog/](https://opera-cal-val.github.io/)
-- Test blog: [https://opera-cal-val.github.io/dist-s1-blog/test/](https://opera-cal-val.github.io/test/)
+- Main blog: [https://opera-cal-val.github.io/](https://opera-cal-val.github.io/)
+- Test blog: [https://opera-cal-val.github.io/test/](https://opera-cal-val.github.io/test/)
 
 ## Installation
 
