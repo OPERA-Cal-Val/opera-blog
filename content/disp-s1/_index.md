@@ -1,7 +1,7 @@
 ---
-title: "Home"
+title: "DISP-S1"
 menu: "main"
-weight: 1
+weight: 20
 ---
 
 This blog is to discuss the OPERA DISP-S1 product and provide interactive visualizations.
