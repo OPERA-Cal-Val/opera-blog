@@ -1,9 +1,9 @@
-# dist-s1-blog
+# OPERA-blog
 
-This is the repository for publishing the informal dist-s1 blog.
+This is the repository for publishing the informal OPERA blog that covers various products.
 
-- Main blog: https://opera-cal-val.github.io/dist-s1-blog/
-- Test blog: https://opera-cal-val.github.io/dist-s1-blog/test/
+- Main blog: [https://opera-cal-val.github.io/opera-blog/](https://opera-cal-val.github.io/opera-blog/)
+- Test blog: [https://opera-cal-val.github.io/opera-blog/test/](https://opera-cal-val.github.io/opera-blog/test/)
 
 ## Installation
 

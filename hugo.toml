@@ -1,4 +1,4 @@
-baseURL = 'https://opera-cal-val.github.io/'
+baseURL = 'https://opera-cal-val.github.io/opera-blog/'
 languageCode = 'en-us'
 title = 'OPERA Blog'
 theme = 'hugo-bearcub'
