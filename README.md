@@ -36,3 +36,7 @@ See the sample blog posts for examples.
 To create a single file capable of multiple zoom layers that can be integrated into leaflet see here: https://github.com/OPERA-Cal-Val/dist-s1-research/blob/dev/marshak/Xc_pmtiles/pm_tiles.ipynb
 
 Note we converted a geotiff with a colorbar to RGB (3 channel) image and then to the pmtile format.
+
+### Disclaimer
+
+We are not web-developers and so we are sorry for the js and hugo code not being done as elegantly as one might hope.
