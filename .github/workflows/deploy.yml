@@ -38,13 +38,13 @@ jobs:
     - name: Build (main branch)
       if: github.ref == 'refs/heads/main'
       run: |
-        hugo --minify --baseURL https://opera-cal-val.github.io/
+        hugo --minify --baseURL https://opera-cal-val.github.io/opera-blog/
         touch public/.nojekyll
 
     - name: Build (dev branch)
       if: github.ref == 'refs/heads/dev'
       run: |
-        hugo --minify --baseURL https://opera-cal-val.github.io/test/
+        hugo --minify --baseURL https://opera-cal-val.github.io/opera-blog/test/
         touch public/.nojekyll
 
     - name: Deploy main to GitHub Pages root
@@ -54,7 +54,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./public
-        destination_dir: .
+        destination_dir: opera-blog
 
     - name: Deploy dev to GitHub Pages /test/
       if: github.ref == 'refs/heads/dev'
@@ -63,5 +63,5 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./public
-        destination_dir: test
+        destination_dir: opera-blog/test
         keep_files: true
