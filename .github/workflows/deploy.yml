@@ -54,7 +54,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./public
-        destination_dir: opera-blog
+        destination_dir: .
 
     - name: Deploy dev to GitHub Pages /test/
       if: github.ref == 'refs/heads/dev'
@@ -63,5 +63,5 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./public
-        destination_dir: opera-blog/test
+        destination_dir: test
         keep_files: true
