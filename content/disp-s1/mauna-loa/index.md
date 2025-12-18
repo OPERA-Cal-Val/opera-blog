@@ -9,7 +9,7 @@ The OPERA Surface Displacement from Sentinel-1 (DISP-S1) products measure ground
 
 Here we highlight the application of DISP-S1 products to the summit area of Mauna Loa volacano in Hawai'i. There was a significant eruption of Mauna Loa in December 2022, and the DISP-S1 products show the surface expression of a magma intrusion at shallow depths beneath the summit. The magma intruded along a dike or vertical crack and pushed the sides of the volcano apart in a short time at the beginning of the eruption. The eruption also caused lava to fill the summit crater and flow down the north side of the volcano. The lava flow shows ongoing surface displacement for almost a year after the eruption, likely a combination of slow downhill movement of the lava and contraction as the lava fills.
 
-This map shows the location of Mauna Loa summit in the middle of the Big Island of Hawai'i.
+This map shows the location of Mauna Loa summit in the middle of the Big Island of Hawai'i, where the DISP-S1 maps below coverage is shown with a black box.
 
 ![Map showing the Big Island of Hawai'i. A black box outlines the area of the summit of Mauna Loa shown in the displacement maps below.](Hawaii-MaunaLoa-box.png)
 
@@ -19,7 +19,7 @@ Another feature looks similar on the two maps with a dark blue color. This is wh
 
 The time series plots show the how the three points moved over time from the DISP-S1 dataset. Point 1, with blue dots on the graph, shows how the west side of the summit moved from 2016 to 2024. There is a sudden westward motion in December 2022 at the time of the Mauna Loa eruption. Point 2, with orange dots on the graph, shows how the east side of the summit moved over the same time interval, with a sudden eastward movement at the time of the eruption. 
 
-The time series for Point 3 has a different temporal pattern. This point is on the top of the large lava flow that flowed north from the summit during the eruption, and it shows that the surface of the flow moved gradually for many months after the eruption in a direction that is away from the satellite on both tracks. This is likely a combination of downward motion due to cooling of the lava and slow motion of the viscous lava to the north on the steep slope of Mauna Loa.
+The time series for Point 3 (green dots) has a different temporal pattern. This point is on the top of the large lava flow that flowed north from the summit during the eruption, and it shows that the surface of the flow moved gradually for many months after the eruption in a direction that is away from the satellite on both tracks. This is likely a combination of downward motion due to cooling of the lava and slow motion of the viscous lava to the north on the steep slope of Mauna Loa.
 
 This is the map and time series plots for the ascending track, where the direction from the ground to the satellite is up and west.
 ![Screenshot of Displacement portal showing Mauna Loa displacements on the ascending track, with time series graphs for three points near the summit.](MaunaLoa-Asc.jpg)
