@@ -55,7 +55,7 @@ jobs:
         publish_branch: gh-pages
         publish_dir: ./public
         destination_dir: .
-        keep_files: true
+        keep_files: false
 
     - name: Deploy dev to GitHub Pages /test/
       if: github.ref == 'refs/heads/dev'
@@ -65,4 +65,4 @@ jobs:
         publish_branch: gh-pages
         publish_dir: ./public
         destination_dir: test
-        keep_files: true
+        keep_files: false
