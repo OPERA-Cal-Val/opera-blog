@@ -3,6 +3,7 @@ author = "Richard West"
 title = "Tornado Tracks 2025 - preliminary take"
 date = "2025-10-29"
 description = "Tornado Track of 2025"
+draft = true
 +++
 
 Tornado track visible in MGRS tile 16SGG on 2025-07-23.
