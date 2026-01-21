@@ -357,40 +357,4 @@ Visually, we scaled the metric to be between 2 and 5, so that values below 2 are
 })();
 </script>
 
-]]></content:encoded></item><item><title>Tornado Tracks 2025 - preliminary take</title><link>https://opera-cal-val.github.io/opera-blog/test/dist-s1/tornado_tracks/</link><pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate><guid>https://opera-cal-val.github.io/opera-blog/test/dist-s1/tornado_tracks/</guid><description>&lt;p&gt;Tornado track visible in MGRS tile 16SGG on 2025-07-23.&lt;/p&gt;
-&lt;p&gt;Examine this observation interactively on GEE &lt;a href="https://code.earthengine.google.com/dd60c27ccc7b378f5195205c06505f56"&gt;link&lt;/a&gt;.
-Select the last tile (16SGG) from the tile pulldown and
-zoom into the lower left area.
-The images below show different layers from the GEE page.
-The first image is an optical view showing the tornado track as
-an obvious color shift where the Daniel Boone national forest was
-severely damaged.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://opera-cal-val.github.io/opera-blog/test/dist-s1/tornado_tracks/hls1.png" alt="image"&gt;&lt;/p&gt;
-&lt;p&gt;The image below shows the Sentinel 1 radar image using VV polarization.
-The tornado track is not obvious.
-Close examination shows some subtle textural change along the track.&lt;/p&gt;</description><content:encoded><![CDATA[<p>Tornado track visible in MGRS tile 16SGG on 2025-07-23.</p>
-<p>Examine this observation interactively on GEE <a href="https://code.earthengine.google.com/dd60c27ccc7b378f5195205c06505f56">link</a>.
-Select the last tile (16SGG) from the tile pulldown and
-zoom into the lower left area.
-The images below show different layers from the GEE page.
-The first image is an optical view showing the tornado track as
-an obvious color shift where the Daniel Boone national forest was
-severely damaged.</p>
-<p><img src="/opera-blog/test/dist-s1/tornado_tracks/hls1.png" alt="image"></p>
-<p>The image below shows the Sentinel 1 radar image using VV polarization.
-The tornado track is not obvious.
-Close examination shows some subtle textural change along the track.</p>
-<p><img src="/opera-blog/test/dist-s1/tornado_tracks/s1obs.png" alt="image"></p>
-<p>The image below shows the Sentinel 1 VV radar image after subtracting off
-a historical baseline in dB terms.
-The track shows more clearly but still subtle as
-a textural change.</p>
-<p><img src="/opera-blog/test/dist-s1/tornado_tracks/s1obs_rel.png" alt="image"></p>
-<p>The image below shows the corresponding Dist-S1 status labels.
-The tornado track shows up sparsely.</p>
-<p><img src="/opera-blog/test/dist-s1/tornado_tracks/s1status.png" alt="image"></p>
-<p>Radar sees the tornado path less clearly than optical.
-The tornado caused extensive damage to the forest, but the actual
-density of scattering centers seems to be more re-arranged rather
-than reduced.</p>
 ]]></content:encoded></item></channel></rss>
