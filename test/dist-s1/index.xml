@@ -48,9 +48,7 @@ This allows us to see the full burn area and the accumulated changes detected by
   });
 
   // Load PMTiles - detect path based on current location
-  const pathPrefix = window.location.pathname.includes('/dist-s1-blog/')
-    ? (window.location.pathname.includes('/test/') ? '/dist-s1-blog/test' : '/dist-s1-blog')
-    : '';
+  const pathPrefix = window.location.pathname.startsWith('/opera-blog') ? '/opera-blog' : '';
   const pmtilesUrl = `${pathPrefix}/map_data/los_angeles/los_angeles_2025.pmtiles`;
   const p = new pmtiles.PMTiles(pmtilesUrl);
 
@@ -180,9 +178,7 @@ Visually, we scaled the metric to be between 2 and 5, so that values below 2 are
   });
 
   // Load PMTiles - detect path based on current location
-  const pathPrefix = window.location.pathname.includes('/dist-s1-blog/')
-    ? (window.location.pathname.includes('/test/') ? '/dist-s1-blog/test' : '/dist-s1-blog')
-    : '';
+  const pathPrefix = window.location.pathname.startsWith('/opera-blog') ? '/opera-blog' : '';
 
   // Load Eaton Fire Status PMTiles
   const eatonStatusUrl = `${pathPrefix}/map_data/los_angeles/eaton_fire_2025_status.pmtiles`;
