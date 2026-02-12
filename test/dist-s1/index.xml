@@ -45,11 +45,13 @@ When comparing the above products (<code>DIST-S1</code>, <code>VEG-STATUS</code>
 <script src="https://unpkg.com/pmtiles@3.0.7/dist/pmtiles.js"></script>
 
 
-<div id="sweden-map" style="height: 600px; width: 100%; margin: 20px 0;"></div>
+<div id="sweden-map" data-base="https://opera-cal-val.github.io/opera-blog/test/" style="height: 600px; width: 100%; margin: 20px 0;"></div>
 
 <script>
 (async () => {
-  const pathPrefix = window.location.pathname.startsWith('/opera-blog') ? '/opera-blog' : '';
+  
+  
+  const pathPrefix = new URL(document.getElementById('sweden-map').dataset.base).pathname.replace(/\/$/, '');
   const map = L.map('sweden-map');
   
 
@@ -122,11 +124,13 @@ When comparing the above products (<code>DIST-S1</code>, <code>VEG-STATUS</code>
 
 
 
-<div id="indonesia-map" style="height: 600px; width: 100%; margin: 20px 0;"></div>
+<div id="indonesia-map" data-base="https://opera-cal-val.github.io/opera-blog/test/" style="height: 600px; width: 100%; margin: 20px 0;"></div>
 
 <script>
 (async () => {
-  const pathPrefix = window.location.pathname.startsWith('/opera-blog') ? '/opera-blog' : '';
+  
+  
+  const pathPrefix = new URL(document.getElementById('indonesia-map').dataset.base).pathname.replace(/\/$/, '');
   const map = L.map('indonesia-map');
   
 
@@ -199,11 +203,13 @@ This scene shows the conversion of green areas to buildings with solar paneled r
 
 
 
-<div id="china-map" style="height: 600px; width: 100%; margin: 20px 0;"></div>
+<div id="china-map" data-base="https://opera-cal-val.github.io/opera-blog/test/" style="height: 600px; width: 100%; margin: 20px 0;"></div>
 
 <script>
 (async () => {
-  const pathPrefix = window.location.pathname.startsWith('/opera-blog') ? '/opera-blog' : '';
+  
+  
+  const pathPrefix = new URL(document.getElementById('china-map').dataset.base).pathname.replace(/\/$/, '');
   const map = L.map('china-map');
   
 
