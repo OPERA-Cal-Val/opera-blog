@@ -24,11 +24,13 @@
 <script src="https://unpkg.com/pmtiles@3.0.7/dist/pmtiles.js"></script>
 {{ end }}
 
-<div id="{{ .Get "id" }}" style="height: {{ .Get "height" | default "600px" }}; width: 100%; margin: 20px 0;"></div>
+<div id="{{ .Get "id" }}" data-base="{{ .Site.BaseURL }}" style="height: {{ .Get "height" | default "600px" }}; width: 100%; margin: 20px 0;"></div>
 
 <script>
 (async () => {
-  const pathPrefix = window.location.pathname.startsWith('/opera-blog') ? '/opera-blog' : '';
+  // Derive path prefix from the Hugo baseURL baked in at build time.
+  // Works correctly for main (/opera-blog), dev (/opera-blog/test), and local (/).
+  const pathPrefix = new URL(document.getElementById('{{ .Get "id" }}').dataset.base).pathname.replace(/\/$/, '');
   const map = L.map('{{ .Get "id" }}');
   {{ if and (.Get "lat") (.Get "lon") }}
   map.setView([{{ .Get "lat" }}, {{ .Get "lon" }}], {{ .Get "zoom" | default "10" }});
