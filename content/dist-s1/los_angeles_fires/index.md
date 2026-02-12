@@ -7,12 +7,12 @@ description = "Los Angeles Wildfires as seen in DIST-S1"
 
 ![Toastt21](https://upload.wikimedia.org/wikipedia/commons/1/1a/PalisadesFire_fromDowntown.png) Image attribution [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons
 
-The Los Angeles wildfires in January 2025 devasted our city including many at JPL.
+The Los Angeles wildfires in January 2025 devastated our city including many at JPL.
 It's a hazard that many on the OPERA team were personally impacted.
-Due to it's felt proximity, we were eager to see how well the DIST-S1 product fared.
+Due to its felt proximity, we were eager to see how well the DIST-S1 product fared.
 The OPERA DIST-S1 product provides disturbance alerts and accumulates changes over time.
 It is far from perfect, but it is able to provide all-weather, all-illumination observations.
-We will see how the burn areas faired against hand drawn maps.
+We will see how the burn areas fared against hand drawn maps.
 We will also see how the changes accumulated evolved over time.
 
 
@@ -20,12 +20,12 @@ We will also see how the changes accumulated evolved over time.
 
 Let's first examine what the product looks like 2 months after the fire.
 The most representative layer is the `DIST-GEN-STATUS` layer, which represents the disturbance delineations detected by our product. 
-A description of this layer, it's labels, and color map can be found [here](https://opera-adt.github.io/dist-s1/test/pages/product_documentation/disturbance_labels/):
+A description of this layer, its labels, and color map can be found [here](https://opera-adt.github.io/dist-s1/test/pages/product_documentation/disturbance_labels/):
 
 ![dist_labels](dist-labels.png)
 
 We overlay the perimeters extracted from the [Wildland Fire Interagency Geospatial Services](https://data-nifc.opendata.arcgis.com/datasets/nifc::wfigs-current-interagency-fire-perimeters/about), a massive database of burn perimeters within the United States. 
-To get all the relevant perimeters (Eaton, Pallisades, Kenneth, Sunset), we examined +/- 20 days from January 4th, 2025 within MGRS tile 11SLT. 
+To get all the relevant perimeters (Eaton, Palisades, Kenneth, Sunset), we examined +/- 20 days from January 4th, 2025 within MGRS tile 11SLT. 
 Again, the status layer shown is actually 2 months after the event.
 This allows us to see the full burn area and the accumulated changes detected by the product.
 
@@ -154,12 +154,12 @@ In the time-series below, you often see images taken twice in 1 day because ther
 
 For example, SAR is highly sensitive to rain.
 Los Angeles had an unusually wet February including an [atmospheric river](https://cw3e.ucsd.edu/cw3e-event-summary-12-14-february-2025/) on
-Feburary 14th on 2024.
+February 14th of 2025.
 You can see erroneous changes associated to this that are marked as alert/provisional signal and then are removed over time with confirmation process.
 
 ## Eaton Fire Zoom In
 
-Let's take a closer look at the Eaton Fire with additional external data layers including damage indicators and as well as the DIST-S1 metric.
+Let's take a closer look at the Eaton Fire with additional external data layers including damage indicators as well as the DIST-S1 metric.
 The **D**amage **Ins**pection (DINS) data from CalFire (here are the links for the [complete CA DINS database](https://hub-calfire-forestry.hub.arcgis.com/datasets/cal-fire-damage-inspection-dins-data/explore) and just for [Eaton](https://gis.data.ca.gov/datasets/CALFIRE-Forestry::dins-2025-eaton-public-view/about)).
 One thing to note is that the status layer confirms/accumulates changes through all viewing geometries and over time.
 Our confirmed layers do not capture the entire burn perimeter.
