@@ -274,6 +274,167 @@ This scene shows the conversion of green areas to buildings with solar paneled r
 <li>The DIST-HLS product shows the creation of a narrow road or railway being built. However, these are recent/ongoing developments and the changes are not confirmed (i.e. provisional) in either <code>VEG-STATUS</code> or <code>GEN-STATUS</code>. In the high-resolution imagery, you can see the highway piles being laid without highway atop them yet.</li>
 <li>The <code>DIST-S1</code> product is very good at seeing the construction of buildings with solar paneled roofs.</li>
 </ul>
+<h2 id="balitomore-maryland">Balitomore, Maryland</h2>
+<p>This shows the port of Baltimore and the surrounding industrial area.</p>
+
+
+
+
+
+<div id="baltimore-map" data-base="https://opera-cal-val.github.io/opera-blog/test/" style="height: 600px; width: 100%; margin: 20px 0;"></div>
+
+<script>
+(async () => {
+  
+  
+  const pathPrefix = new URL(document.getElementById('baltimore-map').dataset.base).pathname.replace(/\/$/, '');
+  const map = L.map('baltimore-map');
+  
+
+  const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri', maxZoom: 19
+  }).addTo(map);
+
+  const google = L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    attribution: 'Imagery &copy; Google', maxZoom: 21, subdomains: ['0', '1', '2', '3']
+  });
+
+  const osm = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors © CARTO', maxZoom: 19,
+    subdomains: 'abcd'
+  });
+
+  
+  function makePMTilesLayer(p) {
+    return L.GridLayer.extend({
+      createTile(coords, done) {
+        const tile = document.createElement('img');
+        p.getZxy(coords.z, coords.x, coords.y).then(data => {
+          if (data) {
+            const blobUrl = URL.createObjectURL(new Blob([data.data], {type: 'image/png'}));
+            tile.src = blobUrl;
+            tile.onload = () => { URL.revokeObjectURL(blobUrl); done(null, tile); };
+            tile.onerror = () => done(new Error('tile error'), tile);
+          } else { done(new Error('no data'), tile); }
+        }).catch(err => done(err, tile));
+        return tile;
+      }
+    });
+  }
+
+  const layers = JSON.parse("\n[\n  {\"url\": \"/map_data/compare_dist_hls_v1/baltimore_shipping_area_example/OPERA_L3_DIST-ALERT-S1_T18SUJ_20250727T230715Z_20260205T184019Z_S1A_30_v0.1_GEN-DIST-STATUS_subset.pmtiles\", \"label\": \"DIST-S1 (2025-07-27)\"},\n  {\"url\": \"/map_data/compare_dist_hls_v1/baltimore_shipping_area_example/OPERA_L3_DIST-ALERT-HLS_T18SUJ_20250731T155819Z_20250813T013705Z_S2B_30_v1_VEG-DIST-STATUS_subset.pmtiles\", \"label\": \"DIST-HLS Vegetation (2025-07-31)\"},\n  {\"url\": \"/map_data/compare_dist_hls_v1/baltimore_shipping_area_example/OPERA_L3_DIST-ALERT-HLS_T18SUJ_20250731T155819Z_20250813T013705Z_S2B_30_v1_GEN-DIST-STATUS_subset.pmtiles\", \"label\": \"DIST-HLS Generic (2025-07-31)\"}\n]\n");
+  const overlays = {};
+  let centered = false;
+
+  for (const [i, layer] of layers.entries()) {
+    const p = new pmtiles.PMTiles(`${pathPrefix}${layer.url}`);
+    const LayerClass = makePMTilesLayer(p);
+    const leafletLayer = new LayerClass({opacity: 0.8, attribution: 'JPL/Caltech', maxZoom: 16, minZoom: 0});
+    overlays[layer.label] = leafletLayer;
+
+    
+    if (i === 0) {
+      leafletLayer.addTo(map);
+      if (!centered) {
+        centered = true;
+        p.getHeader().then(h => map.fitBounds([[h.minLat, h.minLon], [h.maxLat, h.maxLon]]));
+      }
+    }
+  }
+
+  L.control.layers({"ESRI Imagery": esri, "Google Satellite": google, "OpenStreetMap": osm}, overlays).addTo(map);
+})();
+</script>
+
+<p>Things to note:</p>
+<ul>
+<li>Large objects that move into the scene will be delineated as disturbance. Physically, this is the result of the change from specular reflection (flat ground or water) to double bounce (large objects):
+<ul>
+<li>Cargo ships that park in the various loading docks (assuming they were not present in the baseline) appear as disturbance in the <code>DIST-S1</code> product. You can see some of these massive ships by switching the satellite basemaps (from Google to ESRI).</li>
+<li>Large cargo areas often get shown as disturbances due to the moving and clearing of large storage containers in the scene.</li>
+<li>A few massive parking lots appear as disturbances either because they are new (after construction atop clear land) or the more regular occurences of parked cars. Both would change the returns from specular to double bounce.</li>
+</ul>
+</li>
+<li>The <code>DIST-HLS</code> and <code>DIST-S1</code> agree on changes that concern the clearing of vegetation (e.g. trees) though <code>DIST-S1</code> clearly show far more disturbances in this coastal urban scene. It&rsquo;s also worth noting that the F1 mask excludes water from being considered in disturbances (and the baseline).</li>
+</ul>
+<h1 id="shifting-cultivation">Shifting Cultivation</h1>
+<h2 id="laos">Laos</h2>
+<p>Below we see the shifting cultivation of Rice Paddies in Southern Laos.</p>
+
+
+
+
+
+<div id="laos-map" data-base="https://opera-cal-val.github.io/opera-blog/test/" style="height: 600px; width: 100%; margin: 20px 0;"></div>
+
+<script>
+(async () => {
+  
+  
+  const pathPrefix = new URL(document.getElementById('laos-map').dataset.base).pathname.replace(/\/$/, '');
+  const map = L.map('laos-map');
+  
+
+  const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri', maxZoom: 19
+  }).addTo(map);
+
+  const google = L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    attribution: 'Imagery &copy; Google', maxZoom: 21, subdomains: ['0', '1', '2', '3']
+  });
+
+  const osm = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors © CARTO', maxZoom: 19,
+    subdomains: 'abcd'
+  });
+
+  
+  function makePMTilesLayer(p) {
+    return L.GridLayer.extend({
+      createTile(coords, done) {
+        const tile = document.createElement('img');
+        p.getZxy(coords.z, coords.x, coords.y).then(data => {
+          if (data) {
+            const blobUrl = URL.createObjectURL(new Blob([data.data], {type: 'image/png'}));
+            tile.src = blobUrl;
+            tile.onload = () => { URL.revokeObjectURL(blobUrl); done(null, tile); };
+            tile.onerror = () => done(new Error('tile error'), tile);
+          } else { done(new Error('no data'), tile); }
+        }).catch(err => done(err, tile));
+        return tile;
+      }
+    });
+  }
+
+  const layers = JSON.parse("\n[\n  {\"url\": \"/map_data/compare_dist_hls_v1/laos_shifting_cultivation_example/OPERA_L3_DIST-ALERT-S1_T48QXD_20250728T224404Z_20260205T184404Z_S1A_30_v0.1_GEN-DIST-STATUS_subset.pmtiles\", \"label\": \"DIST-S1 (2025-07-28)\"},\n  {\"url\": \"/map_data/compare_dist_hls_v1/laos_shifting_cultivation_example/OPERA_L3_DIST-ALERT-HLS_T48QXD_20250729T031818Z_20250816T130250Z_L9_30_v1_VEG-DIST-STATUS_subset.pmtiles\", \"label\": \"DIST-HLS Vegetation (2025-07-29)\"},\n  {\"url\": \"/map_data/compare_dist_hls_v1/laos_shifting_cultivation_example/OPERA_L3_DIST-ALERT-HLS_T48QXD_20250729T031818Z_20250816T130250Z_L9_30_v1_GEN-DIST-STATUS_subset.pmtiles\", \"label\": \"DIST-HLS Generic (2025-07-29)\"}\n]\n");
+  const overlays = {};
+  let centered = false;
+
+  for (const [i, layer] of layers.entries()) {
+    const p = new pmtiles.PMTiles(`${pathPrefix}${layer.url}`);
+    const LayerClass = makePMTilesLayer(p);
+    const leafletLayer = new LayerClass({opacity: 0.8, attribution: 'JPL/Caltech', maxZoom: 16, minZoom: 0});
+    overlays[layer.label] = leafletLayer;
+
+    
+    if (i === 0) {
+      leafletLayer.addTo(map);
+      if (!centered) {
+        centered = true;
+        p.getHeader().then(h => map.fitBounds([[h.minLat, h.minLon], [h.maxLat, h.maxLon]]));
+      }
+    }
+  }
+
+  L.control.layers({"ESRI Imagery": esri, "Google Satellite": google, "OpenStreetMap": osm}, overlays).addTo(map);
+})();
+</script>
+
+<p>Things to note:</p>
+<ul>
+<li>There is some hilly rice paddies that can be seen being created by switching between ESRI and Google Satellite Imagery in the large areas of disturbance towards the center of the imagery.</li>
+<li>There appears to be good alignment between <code>VEG-STATUS</code> and <code>DIST-S1</code> - however, <code>DIST-S1</code> is indicating &ldquo;finished&rdquo; disturbances (white) whereas <code>VEG-STATUS</code> has ongoing confirmed disturbances (red). This may be the result that clearing the vegation for growing the new rice paddies is a change but once the rice paddies are mature with vegetation, they appear similar to the baseline SAR images. However, from the point of view of <code>VEG-STATUS</code> the clearing is a permanent decrease in vegetation cover because rice paddies are not as vegetated as they were with respect to the baseline.</li>
+</ul>
 ]]></content:encoded></item><item><title>Tracking Mauna Loa displacements with OPERA DISP-S1</title><link>https://opera-cal-val.github.io/opera-blog/test/disp-s1/mauna-loa/</link><pubDate>Thu, 18 Dec 2025 00:00:00 +0000</pubDate><guid>https://opera-cal-val.github.io/opera-blog/test/disp-s1/mauna-loa/</guid><description>&lt;p&gt;The OPERA Surface Displacement from Sentinel-1 (DISP-S1) products measure ground motion in the radar line-of-sight direction, providing insight into both natural and human-driven changes across Earth’s surface.&lt;/p&gt;
 &lt;figure&gt;
  &lt;img src="ML_fissure_eruption.jpg" alt="Mauna Loa Lava Fountaining"&gt;
