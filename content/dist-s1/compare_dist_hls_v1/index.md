@@ -95,3 +95,48 @@ Things to note:
 - We see some of the development at high resolution looking at the Google Maps and then switching to ESRI Imagery.
 - The DIST-HLS product shows the creation of a narrow road or railway being built. However, these are recent/ongoing developments and the changes are not confirmed (i.e. provisional) in either `VEG-STATUS` or `GEN-STATUS`. In the high-resolution imagery, you can see the highway piles being laid without highway atop them yet.
 - The `DIST-S1` product is very good at seeing the construction of buildings with solar paneled roofs.
+
+
+## Balitomore, Maryland
+
+This shows the port of Baltimore and the surrounding industrial area.
+
+{{< pmtiles-map id="baltimore-map" >}}
+[
+  {"url": "/map_data/compare_dist_hls_v1/baltimore_shipping_area_example/OPERA_L3_DIST-ALERT-S1_T18SUJ_20250727T230715Z_20260205T184019Z_S1A_30_v0.1_GEN-DIST-STATUS_subset.pmtiles", "label": "DIST-S1 (2025-07-27)"},
+  {"url": "/map_data/compare_dist_hls_v1/baltimore_shipping_area_example/OPERA_L3_DIST-ALERT-HLS_T18SUJ_20250731T155819Z_20250813T013705Z_S2B_30_v1_VEG-DIST-STATUS_subset.pmtiles", "label": "DIST-HLS Vegetation (2025-07-31)"},
+  {"url": "/map_data/compare_dist_hls_v1/baltimore_shipping_area_example/OPERA_L3_DIST-ALERT-HLS_T18SUJ_20250731T155819Z_20250813T013705Z_S2B_30_v1_GEN-DIST-STATUS_subset.pmtiles", "label": "DIST-HLS Generic (2025-07-31)"}
+]
+{{< /pmtiles-map >}}
+
+Things to note:
+- Large objects that move into the scene will be delineated as disturbance. Physically, this is the result of the change from specular reflection (flat ground or water) to double bounce (large objects):
+  - Cargo ships that park in the various loading docks (assuming they were not present in the baseline) appear as disturbance in the `DIST-S1` product. You can see some of these massive ships by switching the satellite basemaps (from Google to ESRI).
+  - Large cargo areas often get shown as disturbances due to the moving and clearing of large storage containers in the scene.
+  - A few massive parking lots appear as disturbances either because they are new (after construction atop clear land) or the more regular occurences of parked cars. Both would change the returns from specular to double bounce.
+- The `DIST-HLS` and `DIST-S1` agree on changes that concern the clearing of vegetation (e.g. trees) though `DIST-S1` clearly show far more disturbances in this coastal urban scene. It's also worth noting that the F1 mask excludes water from being considered in disturbances (and the baseline).
+
+# Shifting Cultivation
+
+## Laos
+
+Below we see the shifting cultivation of Rice Paddies in Southern Laos.
+
+{{< pmtiles-map id="laos-map" >}}
+[
+  {"url": "/map_data/compare_dist_hls_v1/laos_shifting_cultivation_example/OPERA_L3_DIST-ALERT-S1_T48QXD_20250728T224404Z_20260205T184404Z_S1A_30_v0.1_GEN-DIST-STATUS_subset.pmtiles", "label": "DIST-S1 (2025-07-28)"},
+  {"url": "/map_data/compare_dist_hls_v1/laos_shifting_cultivation_example/OPERA_L3_DIST-ALERT-HLS_T48QXD_20250729T031818Z_20250816T130250Z_L9_30_v1_VEG-DIST-STATUS_subset.pmtiles", "label": "DIST-HLS Vegetation (2025-07-29)"},
+  {"url": "/map_data/compare_dist_hls_v1/laos_shifting_cultivation_example/OPERA_L3_DIST-ALERT-HLS_T48QXD_20250729T031818Z_20250816T130250Z_L9_30_v1_GEN-DIST-STATUS_subset.pmtiles", "label": "DIST-HLS Generic (2025-07-29)"}
+]
+{{< /pmtiles-map >}}
+
+Things to note:
+
+- There is some hilly rice paddies that can be seen being created by switching between ESRI and Google Satellite Imagery in the large areas of disturbance towards the center of the imagery.
+- There appears to be good alignment between `VEG-STATUS` and `DIST-S1` - however, `DIST-S1` is indicating "finished" disturbances (white) whereas `VEG-STATUS` has ongoing confirmed disturbances (red). This may be the result that clearing the vegation for growing the new rice paddies is a change but once the rice paddies are mature with vegetation, they appear similar to the baseline SAR images. However, from the point of view of `VEG-STATUS` the clearing is a permanent decrease in vegetation cover because rice paddies are not as vegetated as they were with respect to the baseline.
+
+
+
+
+
+
