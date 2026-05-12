@@ -32,7 +32,9 @@ enableRobotsTXT = true
 
 [params]
   description = "Blog for the OPERA DIST-S1 product"
-  author = 'OPERA Project Science Team'
+
+[params.author]
+  name = 'OPERA Project Science Team'
 
 
 # Dates are displayed following the format below. For more information about
