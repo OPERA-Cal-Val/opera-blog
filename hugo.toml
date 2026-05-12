@@ -1,8 +1,6 @@
 baseURL = 'https://opera-cal-val.github.io/opera-blog/'
-languageCode = 'en-us'
 title = 'OPERA Blog'
 theme = 'hugo-bearcub'
-author = 'OPERA Project Science Team'
 copyright = 'Copyright © 2025,  NASA JPL/Caltech'
 
 # Generate a nice robots.txt for SEO
@@ -26,15 +24,15 @@ enableRobotsTXT = true
 # see https://gohugo.io/content-management/multilingual/
 [languages]
   [languages.en]
-    languageName = "en-US 🇺🇸"
-    LanguageCode = "en-US"
+    label = "en-US 🇺🇸"
+    locale = "en-US"
     contentDir = "content"
   [languages.en.params]
       madeWith = "Made with [Bear Cub](https://github.com/clente/hugo-bearcub)"
 
 [params]
-  # The description of your website
   description = "Blog for the OPERA DIST-S1 product"
+  author = 'OPERA Project Science Team'
 
 
 # Dates are displayed following the format below. For more information about
